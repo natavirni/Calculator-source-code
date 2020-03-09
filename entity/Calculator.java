@@ -35,25 +35,34 @@ public class Calculator {
         this.operator = operator;
     }
 
+    public double addition(double num1, double num2) {
+    	return num1 + num2;
+    }
+    
+    public double subtraction(double num1, double num2) {
+    	return num1 - num2;
+    }
+    
+    public double multiply(double num1, double num2) {
+    	return num1 * num2;
+    }
+    
+    public double divide(double num1, double num2) {
+    	return num1 / num2;
+    }
+    
     public double calculateResult() {
         double result;
-        switch (this.operator) {
-            case "+":
-                result = this.getLeftOperand() + this.getRightOperand();
-                break;
-            case "-":
-                result = this.getLeftOperand() - this.getRightOperand();
-                break;
-            case "*":
-                result = this.getLeftOperand() * this.getRightOperand();
-                break;
-            case "/":
-                result = this.getLeftOperand() / this.getRightOperand();
-                break;
-            default:
-                result=0;
-                break;
-
+        if(this.operator == "+") {
+        	result = addition(this.getLeftOperand(), this.getRightOperand());
+        }else if(this.operator == "-") {
+        	result = subtraction(this.getLeftOperand(), this.getRightOperand());
+        }else if(this.operator == "*") {
+        	result = multiply(this.getLeftOperand(), this.getRightOperand());
+        }else if(this.operator == "/") {
+        	result = divide(this.getLeftOperand(), this.getRightOperand());
+        }else {
+        	result = 0;
         }
         return result;
     }
